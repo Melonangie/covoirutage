@@ -15,31 +15,34 @@ if (isset($_SESSION['login'])) {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE HTML>
+<!--[if lte IE 8]> <html class="ie" lang="fr"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="fr"><!--<![endif]-->
 <head>
-	<meta content="text/html; Charset=UTF-8" http-equiv="Content-Type" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Application Google Maps : Système de Covoiturage</title>
-	<link rel="shortcut icon" href="./images/favicon.png" />
-	<link rel="stylesheet" type="text/css" href="./CSS/style.css" media="screen, projection" id="css"/>
-	<link rel="stylesheet" type="text/css" href="./themes/black-tie/jquery-ui-1.8.4.custom.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="./CSS/timePicker.css" />
-	<link rel="stylesheet" type="text/css" href="./CSS/demo_table.css" />
 
-<!-- Scripts génériques -->
-	<script src="./javascript/fichier-script.js" type="text/javascript"></script>
-	<script src="./javascript/oXHR.js" type="text/javascript"></script>
-	<script src="./javascript/ajax.js" type="text/javascript"></script>
+<!-- Basic Page Needs
+  ================================================== -->
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Application Google Maps : Système de Covoiturage</title>
+		
+<!-- Mobile and IE Specific Metas
+  ================================================== -->		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="js/libs/modernizr-2.5.3.min.js"></script>
 
-<!-- API JQuery -->
-	<script src="./javascript/JQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
-	<script src="./javascript/JQuery/jquery.ui.datepicker-fr.js" type="text/javascript"></script>
-	<script src="./javascript/JQuery/jquery.timePicker.min.js" type="text/javascript"></script>
-	<script src="./javascript/JQuery/jquery-ui-1.8.4.custom.min.js" type="text/javascript"></script>
-	<script src="./javascript/JQuery/jquery.dataTables.min.js" type="text/javascript"></script>
-
-<!-- Script spécifique aux membres -->
+<!-- CSS
+  ================================================== -->
+		<link rel="stylesheet" type="text/css" href="includes/stylesheet.css" />
+		<link rel="stylesheet" type="text/css" href="./CSS/style.css" media="screen, projection" id="css"/>
+		<link rel="stylesheet" type="text/css" href="./themes/black-tie/jquery-ui-1.8.4.custom.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="./CSS/timePicker.css" />
+		<link rel="stylesheet" type="text/css" href="./CSS/demo_table.css" /> 
+		
+<!-- Favicons
+	================================================== -->	
+		<link rel="shortcut icon" href="./images/favicon.png" />
+		
 <?php
 	if ($boolMember == 1) {
 		echo ('
@@ -57,11 +60,9 @@ if (isset($_SESSION['login'])) {
 ?>
 </head>
 
-
 <!-- Test pour connaitre la page chargé -->
 	<!-- Page des favoris -->
 	<!-- Page des requêtes -->
-
 <?php
 if (isset($_GET['action']) && $_GET['action']=='favoris')
 echo('<body onload="init()">');
@@ -73,12 +74,11 @@ else
 echo('<body>');
 ?>
 
-<!-- Chargement de la bannière du site -->
-	<div id="home">
-	<?php
-		include('./headers/head.php');
-	?>
-		<div id="contener">
+<!-- Chargement de le header du site -->
+	<div class="page">
+		<?php include('./headers/head.php'); ?>
+		
+		<div class="page_content">
 		<?php
 			$monAction = new myOperation();
 			$monActionMembre = new myOperationMembre();
@@ -97,14 +97,25 @@ echo('<body>');
 				$monAction->doAction($op);
 			}
 		?>
-		</div>
-<!-- Fermeture de contener -->
-	<?php
-		include('./headers/footer.php');
-	?>
-	</div>
-<!-- Fermeture du Home -->
-
+		</div> <!-- page_content -->
+		
+		<?php include('./modules/navigation.php');?> 
+		<?php include('./headers/footer.php'); ?> 
+		
+	</div> <!-- page -->
+	
+<!-- JS
+	================================================== -->
+	<!-- Fermeture du Home -->
+		<script src="./javascript/fichier-script.js" type="text/javascript"></script>
+		<script src="./javascript/oXHR.js" type="text/javascript"></script>
+		<script src="./javascript/ajax.js" type="text/javascript"></script>
+	<!-- API JQuery -->
+		<script src="./javascript/JQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
+		<script src="./javascript/JQuery/jquery.ui.datepicker-fr.js" type="text/javascript"></script>
+		<script src="./javascript/JQuery/jquery.timePicker.min.js" type="text/javascript"></script>
+		<script src="./javascript/JQuery/jquery-ui-1.8.4.custom.min.js" type="text/javascript"></script>
+		<script src="./javascript/JQuery/jquery.dataTables.min.js" type="text/javascript"></script>
 </body>
 </html>
 

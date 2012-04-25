@@ -2,4 +2,24 @@ compare:
 fc 
 
 themes -> img; javascript
+
+verify connection: pages/checkConnexion.modinc
+sql security: pages/protection-sql
+-----
+
+index: 			page
+headers/head:		header
+						logo	
+						h1 
+						hologe class ?
+headers/banmembre:			logout
+headers/banlog:				login
+headers/head:		/header
+index:				page_content
+index:				/page_content
+modules/navigation: nav
+					/nav
+headers/footer:		footer
+
+
 	

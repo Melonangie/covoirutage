@@ -20,7 +20,7 @@ $captcha = getCaptcha();
 
 
 
-<span class="h1">Inscription</span>
+<h2>Inscription</h2>
 
 <?php
 
@@ -39,30 +39,30 @@ if($result==456)
 	$erreur = verification();
 	switch($erreur){
 		case 1 :
-			echo "<span class='paragraphe'><span class='redtext'> Un ou plusieurs champ(s) n'ont pas été rempli(s)</span></span>";
+			echo "<p><span class='redtext'> Un ou plusieurs champ(s) n'ont pas été rempli(s)</p></p>";
 			break;
 		case 2 :
-			echo "<span class='paragraphe'><span class='redtext'> L'adresse de couriel n'est pas valide</span></span>";
+			echo "<p><span class='redtext'> L'adresse de couriel n'est pas valide</p></p>";
 			break;
 		case 3 :
-			echo "<span class='paragraphe'><span class='redtext'> L'adresse de couriel est déjà utilisée</span></span>";
+			echo "<p><span class='redtext'> L'adresse de couriel est déjà utilisée</p></p>";
 			break;
 		case 4 :
-			echo "<span class='paragraphe'><span class='redtext'> Le login est déjà utilisé.</span></span>";
+			echo "<p><span class='redtext'> Le login est déjà utilisé.</p></p>";
 			break;
 		case 5 :
-			echo "<span class='paragraphe'><span class='redtext'> Les mots de passe sont differents</span></span>";
+			echo "<p><span class='redtext'> Les mots de passe sont differents</p></p>";
 			break;
 		default :
 			performInscription();
-			echo "<span class='paragraphe'> Inscription réussi.</span>";
+			echo "<p> Inscription réussi.</p>";
 			
 			break;
 				
 	}
 }
 if($result==123)
-echo "<span class='paragraphe'> Le champ anti-rot doit être bien rempli.</span>";
+echo "<p> Le champ anti-rot doit être bien rempli.</p>";
 
 ?>
 
@@ -107,18 +107,18 @@ echo "<span class='paragraphe'> Le champ anti-rot doit être bien rempli.</span>
 		<td></td>
 	</tr>
 	<tr>
-		<td><span id="cacher">Nombre de places <abbr title="Champ Obligatoire">*</abbr></span></td>
+		<td><span id="cacher">Nombre de places <abbr title="Champ Obligatoire">*</abbr></p></td>
 		<td><span id="cacher2"> <select id="nbplace" size="1" name="nbplace">
 			<option value="2">2</option>
 			<!--<input type="text" name="nbplace" \>-->
 			<option value="4">4</option>
 			<option value="5">5</option>
-		</select> </span></td>
+		</select> </p></td>
 		<td></td>
 	</tr>
 	<tr>
-		<td><span id="cacher3">Immatriculation <abbr title="Champ Obligatoire">*</abbr></span></td>
-		<td><span id="cacher4"> <input type='text' name='imma'\> </span></td>
+		<td><span id="cacher3">Immatriculation <abbr title="Champ Obligatoire">*</abbr></p></td>
+		<td><span id="cacher4"> <input type='text' name='imma'\> </p></td>
 		<td></td>
 	</tr>
 
@@ -135,7 +135,7 @@ echo "<span class='paragraphe'> Le champ anti-rot doit être bien rempli.</span>
 </table>
 </form>
 
-</span>
+</p>
 <?php
 /**
  * 
@@ -227,7 +227,7 @@ if(isset($_POST['voiture']))
 	{
 		if(trim($_POST['imma'])=='')
 		{
-		echo "<span class='paragraphe'><span class='redtext'> Un ou plusieurs champ(s) n'ont pas été rempli(s)</span></span>";	
+		echo "<p><span class='redtext'> Un ou plusieurs champ(s) n'ont pas été rempli(s)</p></p>";	
 			exit;
 		}
 		$db = new BD();
