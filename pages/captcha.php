@@ -18,8 +18,8 @@ function _captchaLettres()
     $str = substr(str_shuffle($str),0,$length);
     $pos = mt_rand(2,$length-1); // on choisi la position
     
-    if(!isset($_SESSION))
-        session_start(); // on met le résultat en session puis on renvois la question
+    if(!isset($_SESSION))// on met le résultat en session puis on renvois la question
+        session_start();
     
     $_SESSION['captchaResult'] = $str[$pos-1];
     
@@ -36,8 +36,8 @@ function _captchaCalculChiffres()
     
     $calcul = $nb1.' '.$operator.' '.$nb2;
     
-    if(!isset($_SESSION))
-        session_start(); // on met le résultat en session puis on renvois la question
+    if(!isset($_SESSION))// on met le résultat en session puis on renvois la question
+        session_start();
     
     eval('$_SESSION[\'captchaResult\'] = strval('.$nb1.$operator.$nb2.');');
 
@@ -62,8 +62,8 @@ function _captchaCalculLettres()
     if($operator === '-' && $nb1 < $nb2)
         while($nb1 < ($nb2 = array_rand($num))); // on évite les résultats négatif en cas de soustraction
     
-    if(!isset($_SESSION)) 
-        session_start(); // on met le résultat en session puis on renvois la question
+    if(!isset($_SESSION)) // on met le résultat en session puis on renvois la question
+        session_start();
 
     eval('$_SESSION[\'captchaResult\'] = strval('.$nb1.$operator.$nb2.');');
 
@@ -77,8 +77,8 @@ function _captchaAlphaNum()
     $str = substr($str,0,$length);
     $pos = mt_rand(1,$length); // on choisi la position
     
-    if(!isset($_SESSION))
-        session_start(); // on met le résultat en session puis on renvois la question
+    if(!isset($_SESSION))// on met le résultat en session puis on renvois la question
+        session_start();
     
     $_SESSION['captchaResult'] = $str[$pos-1];
     

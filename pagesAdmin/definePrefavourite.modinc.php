@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	//session_start();
 /**
  * @package pagesAdmin
  */
@@ -11,17 +11,21 @@
 <script src="./javascript/markernonfavori.function.js" type="text/javascript"></script>
 <script src="./javascript/prototype/GoogleMap.Prototype.js" type="text/javascript"></script>
 
-<h1>Définition des Favoris Prédéfinis</h1>		
-<p>Vous pouvez définir les favoris prédéfinis</p>	
-	
+<span class="gendarme">
+	<span class="h1">Définition des Favoris Prédéfinis</span>		
+	<span class="paragraphe">
+	    Vous pouvez définir les favoris prédéfinis
+	</span>	
+</span>
+		
 <div id="preFavoris">
 	<div id="map2"></div>		
 	<div id="monPanel">					
 		<form method="POST" action="#">			
 		    <span class="blockleft">
-			    <span class="titrefonction">Num et Rue* : &nbsp;(ex: 90 Rue Jean Sarrazin)</span>		    
+			    <span class="titrefonction">Num et Rue* : <font size="1" color="black">&nbsp;(ex: 90 Rue Jean Sarrazin)</font></span>		    
 			    <input id="txtAddress" type="text" class="gendarme">
-			    <span class="titrefonction">Ville* :</span>
+			     <span class="titrefonction">Ville* :</span>
 			    <input id="city" type="text" class="gendarme" onblur="checkAddress()">
 			    <span class="titrefonction">Code Postal :</span>
 			    <input id="codepostal" type="text" class="gendarme">
@@ -29,17 +33,23 @@
 			    <input id="country" type="text" class="gendarme">
 		    	<span class="titrefonction">Alias :</span>
 		    	<input id="txtLabel" type="text" class="gendarme">
+		    
 		    	<span class="titrefonction">Commentaire :</span>
 		    	<textarea id="txtComment" rows="5" class="gendarme"></textarea>
 		    	
-                <input value="Ajouter"  onclick="createFavouriteFromForm()" type="button">
-                <input value="Modifier" onclick="updateFavourite('pointList',true)" type="button">
-                <input value="Effacer"  onclick="removeFavourite('pointList',true)" type="button">
+		    	<span class="gendarme">
+		    		<input value="Ajouter"  onclick="createFavouriteFromForm()" type="button">
+		    		<input value="Modifier" onclick="updateFavourite('pointList',true)" type="button">
+		    		<input value="Effacer"  onclick="removeFavourite('pointList',true)" type="button">
+		    	</span>
+		    
 		    </span>
+
 		    <span class="titrefonction">Liste de points :</span>			
 		    <span class="blockleft">Nombre de marqueurs : <input size="1" id="nbSelection" value="0"/></span>
 			<div id="maxMarker">Vous avez atteint le nombre maximum de points d'étape.</div>
-			<select id="pointList" size="5" onchange="highlightFavourite(this)" ondblclick="jumpToSelectedFavourite()"></select><br>
+				<span class="gendarme">
+			        <select id="pointList" size="5" onchange="highlightFavourite(this)" ondblclick="jumpToSelectedFavourite()"></select><br>
 			        <?php
 			        	include_once('./BD/favourites.sql.php');
 			        	$mydb = new BD();
@@ -60,12 +70,20 @@
 						}
 			        	$mydb->closeConnexion();
 			        ?>
-			<input style="display:none" id="encodedPolyline" name="encodedPolyline"/>
-			<input style="display:none" id="encodedLevels" name="encodedLevels"/>	
-			<div id="output" style="color:black;font-size:16px;"></div>
-			<span id="loader" style="display: none;">
-			    <img src="images/loading.gif" alt="loading" />
-			</span>
-		</form>						
+			        	
+				</span>
+			<span class="gendarme">
+				<input style="display:none" id="encodedPolyline" name="encodedPolyline"/>
+				<input style="display:none" id="encodedLevels" name="encodedLevels"/>	
+			</span>	
+				<div id="output" style="color:black;font-size:16px;"></div>
+		
+			<span id="loader" style="display: none;"><img src="images/loading.gif" alt="loading" /></span>
+			
+		 
+		    
+		    
+	   </form>
+							
     </div> <!-- monPanel -->
 </div> <!-- monFavoris -->

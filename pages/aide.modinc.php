@@ -1,4 +1,4 @@
-<h1> Introduction en vidéo flash </h1> 
+<span class="gendarme"> <span class="h1"> Introduction en vidéo flash </span> </span>
 <?php
 if (isset($_SESSION['admin']))
 echo '

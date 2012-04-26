@@ -5,34 +5,36 @@
 include_once('protection-sql.php');
 include_once('./BD/user.sql.php');
 
-echo "  <h1> Verification de Connexion </h1>";
-echo "      <article>";
+echo " <span class='h1'> Verification de Connexion </span>";
 
 // on teste si le visiteur a soumis le formulaire de connexion, maybe useless
 if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') {
+	
+	// Test if the login and password are defined.
 	if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) {
-	// Test if the login and password are defined.	
+		
 		$db = new BD();
 		$_SESSION['id'] = getUserId($_POST['login'],$db);
 		extract($_POST);  // je vous renvoie à la doc de cette fonction
 		$exist = existID($_POST['login'], $_POST['pass'], $db);
 		$admin = isAdmin($_SESSION['id'], $db);
-		$db->closeConnexion(); 
+		$db->closeConnexion();
 
-		if ($exist == 1) { 
-	// si on obtient une réponse, alors l'utilisateur est un membre
+		// si on obtient une réponse, alors l'utilisateur est un membre
+		if ($exist == 1) {
+
 			$_SESSION['login'] = $_POST['login'];
 			if ($admin) {
 				$_SESSION['admin'] = true;
-			}		
+			}			
 			$varclef = "<img src='images/loading.gif'/> Connexion en cours ...";
+
 			if (isset($varclef)){
+				echo "<span class='h2'>Connexion : </span>";
 				echo "
-				        <h2>Connexion : </h2>
-					    $varclef
-					    <span class='important'>
-					        (Vérifiez bien que les cookies sont activés pour pouvoir vous connecter ...)
-					    </span>";
+					<span class='paragraphe'>$varclef</span>
+					<span class='important'>(Vérifiez bien que les cookies sont activés pour pouvoir vous connecter ...)</span>
+					";
 			}
 			echo '
 				<script language="Javascript">
@@ -40,7 +42,8 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') {
 				</script>
 				';
 		}
-    //si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
+
+		//si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
 		elseif ($retour == 0) {
 			$info = "Désolé, mais le compte demandé est non reconnu.";
 		}
@@ -55,9 +58,12 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') {
 }
 
 if (isset($info)){
-	echo "  <h2>La tentative de connexion a échoué!</h2>
-			$info	
-			<a class='retour' href='index.php'>Retour &agrave; l'accueil</a>";
+	echo "<span class='h2'>La tentative de connexion a échoué!</span>";
+	echo "
+			<span class='paragraphe'>$info	
+			<a class='retour' href='index.php'>Retour &agrave; l'accueil</a>
+			</span>
+		";
 }
 
 ?>
