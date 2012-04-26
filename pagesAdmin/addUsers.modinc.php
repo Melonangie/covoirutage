@@ -1,16 +1,11 @@
 <?php
-//session_start();
 /**
  * @package pagesAdmin
  */
 ?>
 
-
-
-<script
-	src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script
-	src="./javascript/prototype/Map.Prototype.js" type="text/javascript"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="./javascript/prototype/Map.Prototype.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript">
 document.clientfavs=new Map();;
 var i=0;
@@ -135,15 +130,14 @@ document.clientfavs.put('.$idusr.',"'.$adr.'");
 }
 ?>
 
-<span class="gendarme"> <span class="h1"> Ajouter les nouveaux clients </span>
-	<span class="paragraphe"> Vous pouvez ajouter les nouveaux clients par
-		la fiche en cliquant le button. </span> </span>
-<form method="post" action="">
-	<input type="hidden" name="ajoutclient" /> <input type="submit"
-		value="Ajouter clients" />
-</form>
-<input
-	type='button' onclick='remplir()' value='Ajouter les adresses'></input>
-<div id="output"
-	style="color: red;"></div>
-
+<h1> Ajouter les nouveaux clients </h1S>
+<article> 
+    <p>Vous pouvez ajouter les nouveaux clients par
+    la fiche en cliquant le button. </p> 
+    <form method="post" action="">
+        <input type="hidden" name="ajoutclient" /> 
+        <input type="submit" value="Ajouter clients" />
+    </form>
+    <input type='button' onclick='remplir()' value='Ajouter les adresses'></input>
+    <div id="output" style="color: red;"></div>
+</article>
